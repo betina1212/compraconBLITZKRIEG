@@ -1,0 +1,20 @@
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.toolbar-user {
+  height: 16px;
+  padding-bottom: 5px;
+}
+
+.tipo_usuario {
+  font-size: 14px;
+}
+
+.tipo_usuario::first-letter {
+  text-transform: uppercase;
+}
+
+.name_usuario {
+  font-size: 14px;
+}
