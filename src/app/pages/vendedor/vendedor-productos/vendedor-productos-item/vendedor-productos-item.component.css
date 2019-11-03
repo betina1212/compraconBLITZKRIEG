@@ -1,0 +1,17 @@
+.contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-contenedor {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-contenedor > * {
+  width: 100%;
+  margin-bottom: 8px;
+}
