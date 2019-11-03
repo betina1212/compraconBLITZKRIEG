@@ -1,0 +1,39 @@
+<mat-dialog-content>
+  <form class="form-contenedor" novalidate [formGroup]="formulario" (ngSubmit)="validarFormulario(formulario)">
+    <mat-form-field>
+      <input matInput type="text" name="producto" formControlName="producto" placeholder="Producto" required>
+    </mat-form-field>
+
+    <mat-error *ngIf="formulario.controls['producto'].touched && formulario.controls['producto'].errors">
+      Tiene que ingresar un Producto valido.
+    </mat-error>
+
+    <mat-form-field>
+      <input matInput type="text" name="detalle" formControlName="detalle" placeholder="Detalle" required>
+    </mat-form-field>
+
+    <mat-error *ngIf="formulario.controls['detalle'].touched && formulario.controls['detalle'].errors">
+      Tiene que ingresar un Detalle valido.
+    </mat-error>
+
+    <mat-form-field>
+      <input matInput type="number" name="cantidad" formControlName="cantidad" placeholder="Cantidad" required>
+    </mat-form-field>
+
+    <mat-error *ngIf="formulario.controls['cantidad'].touched && formulario.controls['cantidad'].errors">
+      Tiene que ingresar un Detalle valido.
+    </mat-error>
+
+    <mat-form-field>
+      <input matInput type="number" name="precio" formControlName="precio" placeholder="Precio" required>
+    </mat-form-field>
+
+    <mat-error *ngIf="formulario.controls['precio'].touched && formulario.controls['precio'].errors">
+      Tiene que ingresar un Detalle valido.
+    </mat-error>
+
+    <button type="submit" mat-raised-button color="primary">Guardar</button>
+    <button type="button" mat-raised-button color="basic" color="warn" (click)="cerrarProducto()">Cerrar</button>
+
+  </form>
+</mat-dialog-content>
