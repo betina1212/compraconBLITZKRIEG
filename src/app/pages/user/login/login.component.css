@@ -1,0 +1,34 @@
+.contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.image img {
+  width: 300px;
+}
+
+.card-contenedor {
+  min-width: 300px;
+}
+
+.form-contenedor {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-contenedor > * {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.login-button {
+  width: 100%;
+}
