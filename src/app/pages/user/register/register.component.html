@@ -1,0 +1,92 @@
+<div class="contenedor">
+    <div class="image">
+        <img src="assets/image/blitzkrieg.jpeg" alt="logotipo">
+      </div>
+  <mat-card class="card-contenedor">
+    <mat-card-header>
+      <mat-card-title>
+        Registro
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="form-contenedor" novalidate [formGroup]="register" (ngSubmit)="onRegister(register)">
+
+        <mat-form-field >
+          <input matInput type="text" name="name" formControlName="name" placeholder="Nombre" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['name'].touched && register.controls['name'].errors">
+          Tiene que ingresar un Nombre valido.
+        </mat-error>
+
+        <mat-form-field >
+          <input matInput type="text" name="lastname" formControlName="lastname" placeholder="Apellido" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['lastname'].touched && register.controls['lastname'].hasError('required')">
+          Tiene que ingresar un Apellido valido
+        </mat-error>
+
+        <mat-form-field >
+          <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['email'].touched && register.controls['email'].hasError('required')">
+          Tiene que ingresar un Email
+        </mat-error>
+
+        <mat-error *ngIf="register.controls['email'].hasError('email') && !register.controls['email'].hasError('required')">
+          El formato de Email, no es valido
+        </mat-error>
+
+        <mat-form-field >
+          <input matInput type="number" name="telefono" formControlName="telefono" placeholder="Teléfono" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['telefono'].touched && register.controls['telefono'].errors">
+          Tiene que ingresar un Teléfono valido.
+        </mat-error>
+
+        <mat-form-field >
+          <input matInput type="text" name="direccion" formControlName="direccion" placeholder="Dirección" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['direccion'].touched && register.controls['direccion'].errors">
+          Tiene que ingresar una Dirección valida.
+        </mat-error>
+
+        <mat-form-field>
+          <mat-label>Tipo</mat-label>
+          <mat-select name="tipo" formControlName="tipo" required>
+            <mat-option [value]="'vendedor'">Vendedor</mat-option>
+            <mat-option [value]="'cliente'">Cliente</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field >
+          <input matInput type="password" name="password" formControlName="password" placeholder="Password" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['password'].touched && register.controls['password'].hasError('required')">
+          Tiene que ingresar un Password valido
+        </mat-error>
+
+        <mat-error *ngIf="register.controls['password'].hasError('minlength') && !register.controls['password'].hasError('required')">
+          Tiene que ser mayor a 4 caracteres
+        </mat-error>
+
+        <mat-form-field >
+          <input matInput type="password" name="reply" formControlName="reply" placeholder="Repetir Password" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="register.controls['reply'].touched && register.controls['reply'].hasError('required')">
+            Ingrese nuevamente el Password
+          </mat-error>
+
+        <button type="submit" mat-raised-button color="primary">Registrar</button>
+
+      </form>
+      <button class="register-button" mat-raised-button color="basic" (click)="goToLogin()">Login</button>
+    </mat-card-content>
+  </mat-card>
+</div>

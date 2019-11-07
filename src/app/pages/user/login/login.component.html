@@ -1,0 +1,39 @@
+<div class="contenedor">
+    <div class="image">
+        <img src="assets/image/blitzkrieg.jpeg" alt="logotipo">
+      </div>
+  <mat-card class="card-contenedor">
+    <mat-card-header>
+      <mat-card-title>
+        Login
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="form-contenedor" novalidate [formGroup]="login" (ngSubmit)="onLogin(login)">
+
+        <mat-form-field class="field-full-width">
+          <input matInput type="email" name="email" formControlName="email" placeholder="Email" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="login.controls['email'].touched && login.controls['email'].hasError('required')">
+          Tiene que ingresar un Email
+        </mat-error>
+
+        <mat-error *ngIf="login.controls['email'].hasError('email') && !login.controls['email'].hasError('required')">
+          El formato de Email, no es valido
+        </mat-error>
+
+        <mat-form-field class="field-full-width">
+          <input matInput type="password" name="password" formControlName="password" placeholder="Password" required>
+        </mat-form-field>
+
+        <mat-error *ngIf="login.controls['password'].touched && login.controls['password'].hasError('required')">
+          Tiene que ingresar un Password valido
+        </mat-error>
+
+        <button type="submit" mat-raised-button color="primary">Ingresar</button>
+      </form>
+      <button class="login-button" mat-raised-button color="basic" (click)="goToRegister()">Registrarse</button>
+    </mat-card-content>
+  </mat-card>
+</div>
