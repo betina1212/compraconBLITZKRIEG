@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="back-button">
+  <button mat-stroked-button color="primary" (click)="back()">
+    <mat-icon>
+      arrow_back_ios
+    </mat-icon> Cliente
+  </button>
+</div>
+<div class="contenedor">
+  <div>
+    <mat-card class="producto-card mat-elevation-z8" *ngFor="let compra of compras">
+      <mat-card-header>
+        <mat-card-title class="producto-titulo">
+          {{compra.producto}}
+        </mat-card-title>
+      </mat-card-header>
+      <div class="producto-imagen" *ngIf="compra.imagen !== ' '">
+        <img mat-card-image src="{{compra.imagen}}" alt="producto">
+      </div>
+      <mat-card-content>
+        <p>
+          {{compra.detalle}}
+        </p>
+        <p>Cantidad: {{compra.cantidad}}</p>
+        <p>Precio: {{compra.precio}}</p>
+        <p>Total: {{compra.total}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

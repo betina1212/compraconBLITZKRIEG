@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="back-button">
+  <button mat-stroked-button color="primary" (click)="back()">
+    <mat-icon>
+      arrow_back_ios
+    </mat-icon> Administrador
+  </button>
+</div>
+<div class="contenedor">
+  <div class="title">
+    Clientes
+  </div>
+  <mat-list class="mat-elevation-z8">
+    <mat-list-item *ngFor="let user of usuarios">
+      <h4 mat-line>
+        {{user.nombre}} {{user.apellido}}
+      </h4>
+      <p mat-line>
+        {{user.email}}
+      </p>
+      <mat-slide-toggle [checked]="getEstadoActivo(user)" (change)="onChange(user, $event)"></mat-slide-toggle>
+    </mat-list-item>
+  </mat-list>
+</div>
