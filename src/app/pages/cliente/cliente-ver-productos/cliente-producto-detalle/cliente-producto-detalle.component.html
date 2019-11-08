@@ -1,0 +1,49 @@
+<app-header></app-header>
+<div class="back-button">
+  <button mat-stroked-button color="primary" (click)="back()">
+    <mat-icon>
+      arrow_back_ios
+    </mat-icon> Ver Productos
+  </button>
+</div>
+<div class="contenedor">
+  <div>
+    <mat-card class="producto-card mat-elevation-z8" *ngIf="producto">
+      <mat-card-header>
+        <mat-card-title class="producto-titulo">
+          {{producto.producto}}
+        </mat-card-title>
+      </mat-card-header>
+      <div class="producto-imagen" *ngIf="producto.imagen !== ' '">
+        <img mat-card-image src="{{producto.imagen}}" alt="producto">
+      </div>
+      <mat-card-content>
+        <p>
+          {{producto.detalle}}
+        </p>
+        <p>Precio: {{producto.precio}}</p>
+        <p>Stock: {{producto.stock}}</p>
+
+        <div class="contenedor-pedido">
+          <button mat-raised-button color="primary" [disabled]="cantidad === 0" (click)="addCantidad(-1)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <div class="producto-cantidad">
+            {{cantidad}}
+          </div>
+          <button mat-raised-button color="primary" [disabled]="cantidad >= producto.stock" (click)="addCantidad(+1)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <div class="producto-total" *ngIf="cantidad > 0">
+          Total a Pagar: {{cantidad * producto.precio | number: '.2'}} Bs.-
+        </div>
+      </mat-card-content>
+      <mat-card-footer class="producto-footer">
+        <button mat-raised-button color="primary" [disabled]="cantidad === 0">
+          Comprar
+        </button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
