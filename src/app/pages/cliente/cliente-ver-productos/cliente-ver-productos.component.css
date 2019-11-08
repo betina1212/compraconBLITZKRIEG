@@ -1,0 +1,38 @@
+.contenedor {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-card {
+  margin-bottom: 15px;
+}
+
+.producto-titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.producto-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-imagen img {
+  width: 100px;
+}
+
+.producto-footer {
+  display: flex;
+  padding: 5px;
+}
+
+.producto-footer button {
+  width: 100%;
+}

@@ -1,0 +1,58 @@
+.contenedor {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-card {
+  margin-bottom: 15px;
+}
+
+.producto-titulo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.producto-imagen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.producto-imagen img {
+  width: 250px;
+}
+
+.producto-footer {
+  display: flex;
+  padding: 5px;
+}
+
+.producto-footer button {
+  width: 100%;
+}
+
+.contenedor-pedido {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.producto-cantidad {
+  font-size: 20px;
+  padding: 10px;
+}
+
+.producto-total {
+  font-size: 15px;
+  color: #2B4132;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #E0E0E0;
+  border: 1px solid #7A7C7D;
+}

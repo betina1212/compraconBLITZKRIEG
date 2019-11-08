@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="contenedor">
+  <mat-toolbar color="basic">
+    <span class="toolbar-spacer"></span>
+    <button mat-flat-button color="primary" (click)="addProduct()">
+      <mat-icon>
+        add
+      </mat-icon>
+      Nuevo Producto
+    </button>
+  </mat-toolbar>
+</div>
+<div class="back-button">
+  <button mat-stroked-button color="primary" (click)="back()">
+    <mat-icon>
+      arrow_back_ios
+    </mat-icon> Vendedor
+  </button>
+</div>
+<div class="contenedor">
+  <div>
+    <mat-card *ngFor="let producto of productos">
+      <mat-card-header>
+        <mat-card-title class="producto-titulo">
+            {{producto.producto}}
+            <button mat-icon-button [matMenuTriggerFor]="menuUser">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menuUser="matMenu">
+                <button mat-menu-item (click)="editProduct(producto)">
+                  <mat-icon>edit</mat-icon>
+                  <span>Editar Producto</span>
+                </button>
+              </mat-menu>
+        </mat-card-title>
+      </mat-card-header>
+      <div class="producto-imagen" *ngIf="producto.imagen !== ' '">
+        <img mat-card-image src="{{producto.imagen}}" alt="producto">
+      </div>
+      <mat-card-content>
+        <p>
+          {{producto.detalle}}
+        </p>
+        <p>Precio: {{producto.precio}}</p>
+        <p>Cantidad: {{producto.cantidad}}</p>
+        <p>Stock: {{producto.stock}}</p>
+
+        <input type="file" (change)="upload(producto, $event)" accept=".png,.jpg" />
+
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

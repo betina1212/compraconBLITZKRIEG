@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="back-button">
+  <button mat-stroked-button color="primary" (click)="back()">
+    <mat-icon>
+      arrow_back_ios
+    </mat-icon> Vendedor
+  </button>
+</div>
+<div class="contenedor" *ngIf="usuarios">
+  <div>
+    <mat-card class="producto-card mat-elevation-z8" *ngFor="let pedido of pedidos">
+      <mat-card-header>
+        <mat-card-title class="producto-titulo">
+          {{pedido.producto}}
+        </mat-card-title>
+      </mat-card-header>
+      <div class="producto-imagen" *ngIf="pedido.imagen !== ' '">
+        <img mat-card-image src="{{pedido.imagen}}" alt="producto">
+      </div>
+      <mat-card-content>
+        <p>
+          {{pedido.detalle}}
+        </p>
+        <p>Cantidad: {{pedido.cantidad}}</p>
+        <p>Precio: {{pedido.precio}}</p>
+        <p>Total: {{pedido.total}}</p>
+        <p>Cliente: {{getCliente(pedido.idCliente)}}</p>
+      </mat-card-content>
+      <mat-card-footer class="producto-footer">
+        <button mat-raised-button color="primary" (click)="confirmatPedido(pedido)">
+          Confirmar
+        </button>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
